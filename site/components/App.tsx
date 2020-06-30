@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactTooltip from 'react-tooltip';
 
 import { NAMESPACES, Namespace } from '../../config';
-import { GitHubCorner } from './GitHubCorner';
 import { RuleTable } from './RuleTable';
-import { LanguageSwtich } from './LanguageSwtich';
 import { getLanguage, getQuery, newUrl, replaceUrl, defaultTo, t } from '../utils';
 
 export const App: React.SFC = () => {
@@ -26,8 +24,7 @@ export const App: React.SFC = () => {
     const Header = (
         <div className="flex-center">
             <div className="container-fluid">
-                <h1 className="site-title">eslint-config-alloy</h1>
-                <LanguageSwtich language={language} />
+                <h1 className="site-title">前端相关编码规范</h1>
                 <form className="top-gap site-form">
                     <select
                         value={namespace}
@@ -60,7 +57,6 @@ export const App: React.SFC = () => {
 
     return (
         <>
-            <GitHubCorner href="https://github.com/AlloyTeam/eslint-config-alloy" />
             {Header}
             <RuleTable namespace={namespace} hideOff={hideOff} />
             <ReactTooltip

@@ -1,13 +1,106 @@
 {
-    "declaration-bang-space-after": {
-        "name": "declaration-bang-space-after",
-        "value": "never",
-        "description": "在感叹号之后禁止有空白",
-        "reason": "",
-        "badExample": "a { color: pink ! important; } \na { color: pink! important; }",
-        "goodExample": "a { color: pink !important; } \na { color:pink!important; }",
-        "fixable": false,
-        "extendsBaseRule": "",
-        "requiresTypeChecking": false
-    }
+  "at-rule-empty-line-before": {
+    "name": "at-rule-empty-line-before",
+    "value": "off",
+    "description": "要求在@规则之前必须有空行",
+    "reason": "",
+    "badExample": "div {} @media {} \ndiv {}\n@media {}",
+    "goodExample": "div {}\n\n@media {} \n\n@charset \"UTF-8\";\n\n@import url(x.css);\n@import url(y.css); \n\n@charset \"UTF-8\";\n\n@import url(x.css); /* 注释 */\n@import url(y.css);",
+    "fixable": true,
+    "extendsBaseRule": "",
+    "requiresTypeChecking": false
+  },
+  "declaration-bang-space-after": {
+    "name": "declaration-bang-space-after",
+    "value": "never",
+    "description": "要求在声明的叹号之后禁止有空白",
+    "reason": "",
+    "badExample": "a { color: pink ! important; } \na { color: pink! important; }",
+    "goodExample": "a { color: pink !important; } \na { color:pink!important; }",
+    "fixable": false,
+    "extendsBaseRule": "",
+    "requiresTypeChecking": false
+  },
+  "at-rule-name-case": {
+    "name": "at-rule-name-case",
+    "value": "off",
+    "description": "指定@规则名必须小写",
+    "reason": "",
+    "badExample": "@Charset 'UTF-8'; \n@Media (min-width: 50em) {}",
+    "goodExample": "@charset 'UTF-8'; \n@media (min-width: 50em) {}",
+    "fixable": true,
+    "extendsBaseRule": "",
+    "requiresTypeChecking": false
+  },
+  "at-rule-name-newline-after": {
+    "name": "at-rule-name-newline-after",
+    "value": "off",
+    "description": "具有多行参数时，@规则名之后必须有一个换行符",
+    "reason": "",
+    "badExample": "@import \"x.css\" screen and\n (orientation:landscape);\n@media (min-width: 700px) and\n (orientation: landscape) {}",
+    "goodExample": "@media (min-width: 700px) and (orientation: landscape) {}",
+    "fixable": false,
+    "extendsBaseRule": "",
+    "requiresTypeChecking": false
+  },
+  "at-rule-name-space-after": {
+    "name": "at-rule-name-space-after",
+    "value": "off",
+    "description": "要求在@规则名之后必须有一个空格",
+    "reason": "",
+    "badExample": "@charset\"UTF-8\";\n@media  (min-width: 700px) {}",
+    "goodExample": "@charset \"UTF-8\";\n@media (min-width: 700px) {}",
+    "fixable": true,
+    "extendsBaseRule": "",
+    "requiresTypeChecking": false
+  },
+  "at-rule-no-unknown": {
+    "name": "at-rule-no-unknown",
+    "value": ["never",
+      {
+        "ignoreAtRules": [
+          "content",
+          "each",
+          "else",
+          "extend",
+          "for",
+          "function",
+          "if",
+          "include",
+          "import",
+          "mixin",
+          "rule"
+        ]
+      }
+    ],
+    "description": "禁止未知的@规则名称,但为了兼容 scss、less 等预处理器，排除一些特殊字段",
+    "reason": "",
+    "badExample": "@unknown {}",
+    "goodExample": "@charset \"UTF-8\";",
+    "fixable": false,
+    "extendsBaseRule": "",
+    "requiresTypeChecking": false
+  },
+  "at-rule-semicolon-newline-after": {
+    "name": "at-rule-semicolon-newline-after",
+    "value": "off",
+    "description": "要求在@规则的分号之后必须有换行符",
+    "reason": "",
+    "badExample": "@import url(\"x.css\"); @import url(\"y.css\");\n@import url(\"x.css\"); a {}",
+    "goodExample": "@import url(\"x.css\");\n@import url(\"y.css\");\n@import url(\"x.css\"); /* 行尾注释 */\na {}",
+    "fixable": true,
+    "extendsBaseRule": "",
+    "requiresTypeChecking": false
+  },
+  "at-rule-semicolon-space-before": {
+    "name": "at-rule-semicolon-space-before",
+    "value": "never",
+    "description": "要求在@规则的分号之前禁止有空白符",
+    "reason": "",
+    "badExample": "@import \"components/buttons\" ;",
+    "goodExample": "@import \"components/buttons\";",
+    "fixable": false,
+    "extendsBaseRule": "",
+    "requiresTypeChecking": false
+  }
 }
