@@ -27,3 +27,4 @@ test/vue/no-irregular-whitespace/good.vue
 ## Built-files
 .cache
 dist
+yarn.lock
