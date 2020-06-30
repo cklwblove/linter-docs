@@ -1,0 +1,13 @@
+{
+    "declaration-bang-space-after": {
+        "name": "declaration-bang-space-after",
+        "value": "never",
+        "description": "在感叹号之后禁止有空白",
+        "reason": "",
+        "badExample": "a { color: pink ! important; } \na { color: pink! important; }",
+        "goodExample": "a { color: pink !important; } \na { color:pink!important; }",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    }
+}
