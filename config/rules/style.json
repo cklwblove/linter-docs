@@ -1,309 +1,575 @@
 {
-  "at-rule-empty-line-before": {
-    "name": "at-rule-empty-line-before",
-    "value": "off",
-    "description": "要求在@规则之前必须有空行",
-    "reason": "",
-    "badExample": "div {} @media {} \ndiv {}\n@media {}",
-    "goodExample": "div {}\n\n@media {} \n\n@charset \"UTF-8\";\n\n@import url(x.css);\n@import url(y.css); \n\n@charset \"UTF-8\";\n\n@import url(x.css); /* 注释 */\n@import url(y.css);",
-    "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "declaration-bang-space-after": {
-    "name": "declaration-bang-space-after",
-    "value": "never",
-    "description": "bang声明之后禁止有空白",
-    "reason": "",
-    "badExample": "a { color: pink ! important; } \na { color: pink! important; }",
-    "goodExample": "a { color: pink !important; } \na { color:pink!important; }",
-    "fixable": false,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "at-rule-name-case": {
-    "name": "at-rule-name-case",
-    "value": "off",
-    "description": "指定@规则名必须小写",
-    "reason": "",
-    "badExample": "@Charset 'UTF-8'; \n@Media (min-width: 50em) {}",
-    "goodExample": "@charset 'UTF-8'; \n@media (min-width: 50em) {}",
-    "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "at-rule-name-newline-after": {
-    "name": "at-rule-name-newline-after",
-    "value": "off",
-    "description": "具有多行参数时，@规则名之后必须有一个换行符",
-    "reason": "",
-    "badExample": "@import \"x.css\" screen and\n (orientation:landscape);\n@media (min-width: 700px) and\n (orientation: landscape) {}",
-    "goodExample": "@media (min-width: 700px) and (orientation: landscape) {}",
-    "fixable": false,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "at-rule-name-space-after": {
-    "name": "at-rule-name-space-after",
-    "value": "off",
-    "description": "要求在@规则名之后必须有一个空格",
-    "reason": "",
-    "badExample": "@charset\"UTF-8\";\n@media  (min-width: 700px) {}",
-    "goodExample": "@charset \"UTF-8\";\n@media (min-width: 700px) {}",
-    "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "at-rule-no-unknown": {
-    "name": "at-rule-no-unknown",
-    "value": [
-      "never",
-      {
-        "ignoreAtRules": [
-          "content",
-          "each",
-          "else",
-          "extend",
-          "for",
-          "function",
-          "if",
-          "include",
-          "import",
-          "mixin",
-          "rule"
-        ]
-      }
-    ],
-    "description": "禁止未知的@规则名称,但为了兼容 scss、less 等预处理器，排除一些特殊字段",
-    "reason": "",
-    "badExample": "@unknown {}",
-    "goodExample": "@charset \"UTF-8\";",
-    "fixable": false,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "at-rule-semicolon-newline-after": {
-    "name": "at-rule-semicolon-newline-after",
-    "value": "off",
-    "description": "要求在@规则的分号之后必须有换行符",
-    "reason": "",
-    "badExample": "@import url(\"x.css\"); @import url(\"y.css\");\n@import url(\"x.css\"); a {}",
-    "goodExample": "@import url(\"x.css\");\n@import url(\"y.css\");\n@import url(\"x.css\"); /* 行尾注释 */\na {}",
-    "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "at-rule-semicolon-space-before": {
-    "name": "at-rule-semicolon-space-before",
-    "value": "never",
-    "description": "要求在@规则的分号之前禁止有空白符",
-    "reason": "",
-    "badExample": "@import \"components/buttons\" ;",
-    "goodExample": "@import \"components/buttons\";",
-    "fixable": false,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "block-closing-brace-empty-line-before": {
-    "name": "block-closing-brace-empty-line-before",
-    "value": "never",
-    "description": "禁止在大括号关闭之前有空行",
-    "reason": "",
-    "badExample": "a {\n  color: pink;\n\n}",
-    "goodExample": "a {\n  color: pink;\n}\na { color: pink; }",
-    "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "block-closing-brace-newline-after": {
-    "name": "block-closing-brace-newline-after",
-    "value": "off",
-    "description": "在块的右大括号关闭后必须有一个换行符",
-    "reason": "",
-    "badExample": "a { color: pink; }b { color: red; }",
-    "goodExample": "a { color: pink; }\nb { color: red; }",
-    "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "block-closing-brace-newline-before": {
-    "name": "block-closing-brace-newline-before",
-    "value": "off",
-    "description": "在块的大括号关闭前必须有一个换行符",
-    "reason": "",
-    "badExample": "a {\ncolor: pink;}",
-    "goodExample": "a { color: pink; }\na { color: pink;\n}",
-    "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "block-no-empty": {
-    "name": "block-no-empty",
-    "value": "never",
-    "description": "禁止出现空块",
-    "reason": "",
-    "badExample": "a {}\na { }",
-    "goodExample": "@media print { a { color: pink; } }",
-    "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "block-opening-brace-newline-after": {
-    "name": "block-opening-brace-newline-after",
-    "value": "off",
-    "description": "在块的左大括号之后必须有换行符",
-    "reason": "",
-    "badExample": "a{color: pink;\n}",
-    "goodExample": "a { color: pink; }\na {\ncolor: pink; }",
-    "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "block-opening-brace-newline-before": {
-    "name": "block-opening-brace-newline-before",
-    "value": "off",
-    "description": "在块的左大括号之前必须有换行符",
-    "reason": "",
-    "badExample": "a{color: pink;\n}",
-    "goodExample": "a { color: pink; }\na {\ncolor: pink; }",
-    "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "color-hex-case": {
-    "name": "color-hex-case",
-    "value": "off",
-    "description": "十六进制颜色必须为小写格式",
-    "reason": "",
-    "badExample": "a { color: #FFF; }",
-    "goodExample": "a { color: #000; }",
-    "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "color-hex-length": {
-    "name": "color-hex-length",
-    "value": "off",
-    "description": "十六进制颜色必须为简写格式",
-    "reason": "",
-    "badExample": "a { color: #ffffff; }",
-    "goodExample": "a { color: #fff; }",
-    "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "color-named": {
-    "name": "color-named",
-    "value": "off",
-    "description": "禁止使用命名颜色",
-    "reason": "",
-    "badExample": "a { color: white; }",
-    "goodExample": "a { color: #fff; }",
-    "fixable": false,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "color-no-invalid-hex": {
-    "name": "color-no-invalid-hex",
-    "value": "off",
-    "description": "禁止使用无效的十六进制颜色",
-    "reason": "",
-    "badExample": "a { color: white; }",
-    "goodExample": "a { color: #fff; }",
-    "fixable": false,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "comment-empty-line-before": {
-    "name": "comment-empty-line-before",
-    "value": "off",
-    "description": "在注释之前必须有空行",
-    "reason": "",
-    "badExample": "a { color: white; }",
-    "goodExample": "a { color: #fff; }",
-    "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "comment-no-empty": {
-    "name": "comment-no-empty",
-    "value": "never",
-    "description": "禁止出现空的注释",
-    "reason": "",
-    "badExample": "/**/\n/* */\n/*\n\n */",
-    "goodExample": "/* 注释 */\n/*\n * 多行注释\n**/",
-    "fixable": false,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "comment-whitespace-inside": {
-    "name": "comment-whitespace-inside",
-    "value": "off",
-    "description": "注释内必须留有一个空格",
-    "reason": "",
-    "badExample": "/*注释*/\n/*注释 */\n/** 注释**/",
-    "goodExample": "/* 注释 */\n/** 注释 **/\n/**\n * 注释\n */",
-    "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "comment-word-blacklist": {
-    "name": "comment-word-blacklist",
-    "value": [
-      "never",
-      [
-        "/^TODO:/",
-        "/^FIXME:/",
-        "fuck",
-        "shit",
-        "damn",
-        "twerk",
-        "egg yolk"
-      ],
-      {
-        "severity": "warning"
-      }
-    ],
-    "description": "禁止出现在注释中的单词的黑名单",
-    "reason": "",
-    "badExample": "/* TODO: */\n/* TODO: 添加回退 */",
-    "goodExample": "/* 注释 */",
-    "fixable": false,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "declaration-bang-space-before": {
-    "name": "declaration-bang-space-before",
-    "value": "off",
-    "description": "bang声明之前必须有一个空格",
-    "reason": "",
-    "badExample": "a { color: pink!important; }\na { color: pink  ! important; }",
-    "goodExample": "a { color: pink !important; }\na { color:pink ! important; }",
-    "fixable": true,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "declaration-block-no-duplicate-properties": {
-    "name": "declaration-block-no-duplicate-properties",
-    "value": "never",
-    "description": "在声明的块中禁止出现重复的属性",
-    "reason": "",
-    "badExample": "a { color: pink; color: orange; }\na { color: pink; background: orange; color: orange }",
-    "goodExample": "a { color: pink; }\na { color: pink; background: orange; }",
-    "fixable": false,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  },
-  "declaration-block-no-redundant-longhand-properties": {
-    "name": "declaration-block-no-redundant-longhand-properties",
-    "value": "never",
-    "description": "禁止使用可以缩写却不缩写的属性",
-    "reason": "",
-    "badExample": "a {\n  margin-top: 1px;\n  margin-right: 2px;\n  margin-bottom: 3px;\n  margin-left: 4px;\n}",
-    "goodExample": "a {\n  margin: 1px 2px 3px 4px;\n}",
-    "fixable": false,
-    "extendsBaseRule": "",
-    "requiresTypeChecking": false
-  }
-
+    "at-rule-empty-line-before": {
+        "name": "at-rule-empty-line-before",
+        "value": "off",
+        "description": "要求在@规则之前必须有空行",
+        "reason": "",
+        "badExample": "div {} @media {} \ndiv {}\n@media {}",
+        "goodExample": "div {}\n\n@media {} \n\n@charset \"UTF-8\";\n\n@import url(x.css);\n@import url(y.css); \n\n@charset \"UTF-8\";\n\n@import url(x.css); /* 注释 */\n@import url(y.css);",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-bang-space-after": {
+        "name": "declaration-bang-space-after",
+        "value": "never",
+        "description": "bang声明之后禁止有空白",
+        "reason": "",
+        "badExample": "a { color: #000 ! important; } \na { color: #000! important; }",
+        "goodExample": "a { color: #000 !important; } \na { color:#000!important; }",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "at-rule-name-case": {
+        "name": "at-rule-name-case",
+        "value": "off",
+        "description": "指定@规则名必须小写",
+        "reason": "",
+        "badExample": "@Charset 'UTF-8'; \n@Media (min-width: 50em) {}",
+        "goodExample": "@charset 'UTF-8'; \n@media (min-width: 50em) {}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "at-rule-name-newline-after": {
+        "name": "at-rule-name-newline-after",
+        "value": "off",
+        "description": "具有多行参数时，@规则名之后必须有一个换行符",
+        "reason": "",
+        "badExample": "@import \"x.css\" screen and\n (orientation:landscape);\n@media (min-width: 700px) and\n (orientation: landscape) {}",
+        "goodExample": "@media (min-width: 700px) and (orientation: landscape) {}",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "at-rule-name-space-after": {
+        "name": "at-rule-name-space-after",
+        "value": "off",
+        "description": "要求在@规则名之后必须有一个空格",
+        "reason": "",
+        "badExample": "@charset\"UTF-8\";\n@media  (min-width: 700px) {}",
+        "goodExample": "@charset \"UTF-8\";\n@media (min-width: 700px) {}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "at-rule-no-unknown": {
+        "name": "at-rule-no-unknown",
+        "value": [
+            "never",
+            {
+                "ignoreAtRules": [
+                    "content",
+                    "each",
+                    "else",
+                    "extend",
+                    "for",
+                    "function",
+                    "if",
+                    "include",
+                    "import",
+                    "mixin",
+                    "rule"
+                ]
+            }
+        ],
+        "description": "禁止未知的@规则名称,但为了兼容 scss、less 等预处理器，排除一些特殊字段",
+        "reason": "",
+        "badExample": "@unknown {}",
+        "goodExample": "@charset \"UTF-8\";",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "at-rule-semicolon-newline-after": {
+        "name": "at-rule-semicolon-newline-after",
+        "value": "off",
+        "description": "要求在@规则的分号之后必须有换行符",
+        "reason": "",
+        "badExample": "@import url(\"x.css\"); @import url(\"y.css\");\n@import url(\"x.css\"); a {}",
+        "goodExample": "@import url(\"x.css\");\n@import url(\"y.css\");\n@import url(\"x.css\"); /* 行尾注释 */\na {}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "at-rule-semicolon-space-before": {
+        "name": "at-rule-semicolon-space-before",
+        "value": "never",
+        "description": "要求在@规则的分号之前禁止有空白符",
+        "reason": "",
+        "badExample": "@import \"components/buttons\" ;",
+        "goodExample": "@import \"components/buttons\";",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "block-closing-brace-empty-line-before": {
+        "name": "block-closing-brace-empty-line-before",
+        "value": "never",
+        "description": "禁止在大括号关闭之前有空行",
+        "reason": "",
+        "badExample": "a {\n  color: #000;\n\n}",
+        "goodExample": "a {\n  color: #000;\n}\na { color: #000; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "block-closing-brace-newline-after": {
+        "name": "block-closing-brace-newline-after",
+        "value": "off",
+        "description": "在块的右大括号关闭后必须有一个换行符",
+        "reason": "",
+        "badExample": "a { color: #000; }b { color: red; }",
+        "goodExample": "a { color: #000; }\nb { color: red; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "block-closing-brace-newline-before": {
+        "name": "block-closing-brace-newline-before",
+        "value": "off",
+        "description": "在块的大括号关闭前必须有一个换行符",
+        "reason": "",
+        "badExample": "a {\ncolor: #000;}",
+        "goodExample": "a { color: #000; }\na { color: #000;\n}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "block-no-empty": {
+        "name": "block-no-empty",
+        "value": "never",
+        "description": "禁止出现空块",
+        "reason": "",
+        "badExample": "a {}\na { }",
+        "goodExample": "@media print { a { color: #000; } }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "block-opening-brace-newline-after": {
+        "name": "block-opening-brace-newline-after",
+        "value": "off",
+        "description": "在块的左大括号之后必须有换行符",
+        "reason": "",
+        "badExample": "a{color: #000;\n}",
+        "goodExample": "a { color: #000; }\na {\ncolor: #000; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "block-opening-brace-newline-before": {
+        "name": "block-opening-brace-newline-before",
+        "value": "off",
+        "description": "在块的左大括号之前必须有换行符",
+        "reason": "",
+        "badExample": "a{color: #000;\n}",
+        "goodExample": "a { color: #000; }\na {\ncolor: #000; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "color-hex-case": {
+        "name": "color-hex-case",
+        "value": "off",
+        "description": "十六进制颜色必须为小写格式",
+        "reason": "",
+        "badExample": "a { color: #FFF; }",
+        "goodExample": "a { color: #000; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "color-hex-length": {
+        "name": "color-hex-length",
+        "value": "off",
+        "description": "十六进制颜色必须为简写格式",
+        "reason": "",
+        "badExample": "a { color: #ffffff; }",
+        "goodExample": "a { color: #fff; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "color-named": {
+        "name": "color-named",
+        "value": "off",
+        "description": "禁止使用命名颜色",
+        "reason": "",
+        "badExample": "a { color: white; }",
+        "goodExample": "a { color: #fff; }",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "color-no-invalid-hex": {
+        "name": "color-no-invalid-hex",
+        "value": "off",
+        "description": "禁止使用无效的十六进制颜色",
+        "reason": "",
+        "badExample": "a { color: white; }",
+        "goodExample": "a { color: #fff; }",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "comment-empty-line-before": {
+        "name": "comment-empty-line-before",
+        "value": "off",
+        "description": "在注释之前必须有空行",
+        "reason": "",
+        "badExample": "a { color: white; }",
+        "goodExample": "a { color: #fff; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "comment-no-empty": {
+        "name": "comment-no-empty",
+        "value": "never",
+        "description": "禁止出现空的注释",
+        "reason": "",
+        "badExample": "/**/\n/* */\n/*\n\n */",
+        "goodExample": "/* 注释 */\n/*\n * 多行注释\n**/",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "comment-whitespace-inside": {
+        "name": "comment-whitespace-inside",
+        "value": "off",
+        "description": "注释内必须留有一个空格",
+        "reason": "",
+        "badExample": "/*注释*/\n/*注释 */\n/** 注释**/",
+        "goodExample": "/* 注释 */\n/** 注释 **/\n/**\n * 注释\n */",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "comment-word-blacklist": {
+        "name": "comment-word-blacklist",
+        "value": [
+            "never",
+            ["/^TODO:/", "/^FIXME:/", "fuck", "shit", "damn", "twerk", "egg yolk"],
+            {
+                "severity": "warning"
+            }
+        ],
+        "description": "禁止出现在注释中的单词的黑名单",
+        "reason": "",
+        "badExample": "/* TODO: */\n/* TODO: 添加回退 */",
+        "goodExample": "/* 注释 */",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-bang-space-before": {
+        "name": "declaration-bang-space-before",
+        "value": "off",
+        "description": "bang声明之前必须有一个空格",
+        "reason": "",
+        "badExample": "a { color: #000!important; }\na { color: #000  ! important; }",
+        "goodExample": "a { color: #000 !important; }\na { color:#000 ! important; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-block-no-duplicate-properties": {
+        "name": "declaration-block-no-duplicate-properties",
+        "value": "never",
+        "description": "在声明的块中禁止出现重复的属性",
+        "reason": "",
+        "badExample": "a { color: #000; color: orange; }\na { color: #000; background: orange; color: orange }",
+        "goodExample": "a { color: #000; }\na { color: #000; background: orange; }",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-block-no-redundant-longhand-properties": {
+        "name": "declaration-block-no-redundant-longhand-properties",
+        "value": [
+            "never",
+            {
+                "ignoreShorthands": ["grid-template"]
+            }
+        ],
+        "description": "禁止使用可以缩写却不缩写的属性",
+        "reason": "",
+        "badExample": "a {\n  margin-top: 1px;\n  margin-right: 2px;\n  margin-bottom: 3px;\n  margin-left: 4px;\n}",
+        "goodExample": "a {\n  margin: 1px 2px 3px 4px;\n}",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-block-no-shorthand-property-overrides": {
+        "name": "declaration-block-no-shorthand-property-overrides",
+        "value": "never",
+        "description": "禁止简写属性覆盖相关的扩写属性",
+        "reason": "",
+        "badExample": "a {\n  padding-left: 10px;\n  padding: 20px;\n}\na {\n  transition-property: opacity;\n  transition: opacity 1s linear;\n}",
+        "goodExample": "a { padding: 10px; padding-left: 20px; }",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-block-semicolon-newline-after": {
+        "name": "declaration-block-semicolon-newline-after",
+        "value": "off",
+        "description": "在声明块的分号之后必须有一个换行符",
+        "reason": "",
+        "badExample": "a {\n  color: #000; top: 0;\n}",
+        "goodExample": "a { color: #000; }\na { color: #000; top: 0; }\na {\n  color: #000;\n  top: 0;\n}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-block-semicolon-newline-before": {
+        "name": "declaration-block-semicolon-newline-before",
+        "value": "never",
+        "description": "在声明块的分号之前禁止有一个换行符",
+        "reason": "",
+        "badExample": "a {\n  color: #000\n  ; top: 0;\n}",
+        "goodExample": "a { color: #000; }\na { color: #000; top: 0; }\na {\n  color: #000;\n  top: 0;\n}",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-block-semicolon-space-after": {
+        "name": "declaration-block-semicolon-space-after",
+        "value": "off",
+        "description": "要求在声明块的分号之后必须有一个空格",
+        "reason": "",
+        "badExample": "a { color: #000;top: 0; }",
+        "goodExample": "a { color: #000; top: 0; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-block-semicolon-space-before": {
+        "name": "declaration-block-semicolon-space-before",
+        "value": "off",
+        "description": "要求在声明块的分号之前禁止空格",
+        "reason": "",
+        "badExample": "a { color: #000 ; }\na { color: #000 ; top: 0 ; }",
+        "goodExample": "a { color: #000; }\na { color: #000; top: 0; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-block-single-line-max-declarations": {
+        "name": "declaration-block-single-line-max-declarations",
+        "value": "off",
+        "description": "限制一个单行声明块中声明数量为1",
+        "reason": "",
+        "badExample": "a { color: #000; top: 3px; }\na,\nb { color: #000; top: 3px; }",
+        "goodExample": "a { color: #000; }\na,\nb { color: #000; }\na {\n  color: #000;\n  top: 3px;\n}",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-block-trailing-semicolon": {
+        "name": "declaration-block-trailing-semicolon",
+        "value": "off",
+        "description": "声明块内必须有尾随分号",
+        "reason": "",
+        "badExample": "a { color: #000 }\na { background: orange; color: #000 }\na { @include foo }",
+        "goodExample": "a { color: #000; }\na { background: orange; color: #000; }\na { @include foo; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-colon-newline-after": {
+        "name": "declaration-colon-newline-after",
+        "value": "off",
+        "description": "如果声明的值是多行，则冒号之后必须有换行符",
+        "reason": "",
+        "badExample": "a {\n  box-shadow: 0 0 0 1px #5b9dd9,\n    0 0 2px 1px rgba(30, 140, 190, 0.8);\n}",
+        "goodExample": "a {\n  box-shadow:\n    0 0 0 1px #5b9dd9,\n    0 0 2px 1px rgba(30, 140, 190, 0.8);\n}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-colon-space-after": {
+        "name": "declaration-colon-space-after",
+        "value": "off",
+        "description": "单行冒号声明后必须有一个空格",
+        "reason": "",
+        "badExample": "a {\n  box-shadow:0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);\n}",
+        "goodExample": "a {\n  box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, 0.8);\n}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-colon-space-before": {
+        "name": "declaration-colon-space-before",
+        "value": "never",
+        "description": "单行冒号声明前禁止空格",
+        "reason": "",
+        "badExample": "a { color : #000 }\na { color :#000 }",
+        "goodExample": "a { color: #000 }\na { color:#000 }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-empty-line-before": {
+        "name": "declaration-empty-line-before",
+        "value": "never",
+        "description": "声明前禁止空行",
+        "reason": "",
+        "badExample": "a {\n  --foo: #000;\n\n  bottom: 15px;\n}\na {\n\n  bottom: 15px;\n\n  top: 5px;\n}",
+        "goodExample": "a {\n  --foo: #000;\n  bottom: 15px;\n}\na {\n  bottom: 15px;\n  top: 5px;\n}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "declaration-property-value-blacklist": {
+        "name": "declaration-property-value-blacklist",
+        "value": [
+            "never",
+            {
+                "/^border(?!-(width|spacing))/": ["/thin/", "/medium/", "/thick/", "0"],
+                "/^transition/": ["/all/"]
+            }
+        ],
+        "description": "指定声明内禁止用的属性和值对的黑名单",
+        "reason": "",
+        "badExample": "a { transition: all 2s linear; }",
+        "goodExample": "a { position: relative; }\na { transform: scale(2); }",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "font-family-name-quotes": {
+        "name": "font-family-name-quotes",
+        "value": "off",
+        "description": "指定字体名称当推荐使用引号时再使用引号",
+        "reason": "",
+        "badExample": "a { font-family: Times New Roman, Times, serif; }\na { font-family: MyFontVersion6, sake_case_font; }\na { font-family: 'Arial', sans-serif; }\na { font: 1em Times New Roman, Times, serif; }",
+        "goodExample": "a { font-family: 'Times New Roman', Times, serif; }\na { font-family: \"MyFontVersion6\", \"sake_case_font\"; }\na { font-family: Arial, sans-serif; }\na { font: 1em 'Times New Roman', Times, serif; }",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "font-family-no-duplicate-names": {
+        "name": "font-family-no-duplicate-names",
+        "value": "never",
+        "description": "禁止使用重复的字体名称",
+        "reason": "",
+        "badExample": "a { font-family: 'Times', Times, serif; }",
+        "goodExample": "a { font-family: Times, serif; }",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "font-family-no-missing-generic-family-keyword": {
+        "name": "font-family-no-missing-generic-family-keyword",
+        "value": "never",
+        "description": "禁止在字体系列名称列表中缺少通用系列",
+        "reason": "",
+        "badExample": "a { font-family: Helvetica, Arial, Verdana, Tahoma; }",
+        "goodExample": "a { font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif; }",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "font-weight-notation": {
+        "name": "font-weight-notation",
+        "value": "off",
+        "description": "当有效的关键字（normal、bold、bolder 和 lighter）可用时，font-weight 的值必须是关键字",
+        "reason": "",
+        "badExample": "a { font-weight: 700; }\na { font: italic 400 20px sans-serif; }",
+        "goodExample": "a { font-weight: bold; }\na { font: italic normal 20px sans-serif; }",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "function-calc-no-invalid": {
+        "name": "function-calc-no-invalid",
+        "value": "never",
+        "description": "禁止在 `calc` 函数内使用无效的表达式",
+        "reason": "",
+        "badExample": ".foo {width: calc();}\n.foo {width: calc(100% 80px);}",
+        "goodExample": ".foo {width: calc(100% - 80px);}",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "function-calc-no-unspaced-operator": {
+        "name": "function-calc-no-unspaced-operator",
+        "value": "never",
+        "description": "禁止在 `calc` 函数内使用不加空格的操作符",
+        "reason": "",
+        "badExample": "a { top: calc(1px+2px); }\na { top: calc(1px+ 2px); }",
+        "goodExample": "a { top: calc(1px + 2px); }\na { top: calc(calc(1em * 2) / 3); }",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "function-comma-newline-after": {
+        "name": "function-comma-newline-after",
+        "value": "never",
+        "description": "在多行函数的逗号之后禁止有一个空白符",
+        "reason": "",
+        "badExample": "a { transform: translate(1\n  , 1) }",
+        "goodExample": "a { transform: translate(1, 1) }\na { transform: translate(1 , 1) }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "function-comma-newline-before": {
+        "name": "function-comma-newline-before",
+        "value": "never",
+        "description": "在多行函数的逗号之前禁止有一个空白符",
+        "reason": "",
+        "badExample": "a { transform: translate(1 ,\n  1) }",
+        "goodExample": "a { transform: translate(1, 1) }\na { transform: translate(1 , 1) }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "function-comma-space-after": {
+        "name": "function-comma-space-after",
+        "value": "off",
+        "description": "在单行函数的逗号之后必须有一个空格",
+        "reason": "",
+        "badExample": "a { transform: translate(1,1) }\na { transform: translate(1 ,1) }",
+        "goodExample": "a { transform: translate(1 , 1) }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "function-linear-gradient-no-nonstandard-direction": {
+        "name": "function-linear-gradient-no-nonstandard-direction",
+        "value": "never",
+        "description": "禁止在 linear-gradient() 中调用不符合标准语法的无效方向值。",
+        "reason": "",
+        "badExample": ".foo { background: linear-gradient(top, #fff, #000); }",
+        "goodExample": ".foo { background: linear-gradient(to top, #fff, #000); }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "function-max-empty-lines": {
+        "name": "function-max-empty-lines",
+        "value": "never",
+        "description": "限制函数中相邻空行的数量为0",
+        "reason": "",
+        "badExample": "a {\n  transform:\n    translate(\n\n      1,\n      1\n    );\n}",
+        "goodExample": "a {\n  transform:\n    translate(\n      1,\n      1\n    );\n}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "function-name-case": {
+        "name": "function-name-case",
+        "value": "off",
+        "description": "函数名称必须为小写",
+        "reason": "",
+        "badExample": "a {\n  width: Calc(5% - 10em);\n}",
+        "goodExample": "a {\n  width: calc(5% - 10em);\n}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    }
 }
