@@ -846,5 +846,307 @@
         "fixable": true,
         "extendsBaseRule": "",
         "requiresTypeChecking": false
+    },
+    "no-descending-specificity": {
+        "name": "no-descending-specificity",
+        "value": "never",
+        "description": "禁止在具有较高优先级的选择器后出现被其覆盖的较低优先级的选择器",
+        "reason": "",
+        "badExample": "b a {}\na {}\na + a {}\na {}",
+        "goodExample": "a {}\nb a {}\na {}\na + a {}",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "no-duplicate-at-import-rules": {
+        "name": "no-duplicate-at-import-rules",
+        "value": "never",
+        "description": "禁止在样式表中使用重复的 @import 规则",
+        "reason": "",
+        "badExample": "@import 'a.css';\n@import 'a.css';",
+        "goodExample": "@import \"a.css\";\n@import \"b.css\";",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "no-duplicate-selectors": {
+        "name": "no-duplicate-selectors",
+        "value": "never",
+        "description": "禁止样式表中的重复选择器",
+        "reason": "",
+        "badExample": ".foo,\n.bar,\n.foo {}",
+        "goodExample": ".foo {}\n@media (min-width: 10px) {\n  .foo {}\n}",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "no-empty-source": {
+        "name": "no-empty-source",
+        "value": "never",
+        "description": "禁止空源码",
+        "reason": "",
+        "badExample": "\n\\t\\t\n\\n",
+        "goodExample": "a {}\n/* 只有注释 */",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "no-eol-whitespac": {
+        "name": "no-eol-whitespac",
+        "value": "never",
+        "description": "禁止行尾空格",
+        "reason": "",
+        "badExample": "a { color: #000; }·",
+        "goodExample": "a { color: #000; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "no-extra-semicolons": {
+        "name": "no-extra-semicolons",
+        "value": "never",
+        "description": "禁止出现额外的分号",
+        "reason": "",
+        "badExample": "@import \"x.css\";;\n@import \"x.css\";\n;\na {\n  color: #000;;\n}",
+        "goodExample": "@import \"x.css\";\na {\n  color: #000;\n}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "no-invalid-double-slash-comments": {
+        "name": "no-invalid-double-slash-comments",
+        "value": "never",
+        "description": "禁止使用 CSS 不支持并可能导致意外结果的双斜杠注释 (//...)",
+        "reason": "",
+        "badExample": "a {\n  //color: #000;\n}\n//a { color: #000; }",
+        "goodExample": "a {\n  /* color: #000; */\n}",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "no-missing-end-of-source-newline": {
+        "name": "no-missing-end-of-source-newline",
+        "value": "never",
+        "description": "禁止缺少源码结尾换行符",
+        "reason": "",
+        "badExample": "a { color: #000; }",
+        "goodExample": "a { color: #000; }\n\\n",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "no-unknown-animation": {
+        "name": "no-unknown-animation",
+        "value": "never",
+        "description": "禁止未知的动画",
+        "reason": "",
+        "badExample": "a { animation-name: fancy-slide; }\na { animation: fancy-slide 2s linear; }",
+        "goodExample": "a { animation-name: fancy-slide; }\n@keyframes fancy-slide {}",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "number-leading-zero": {
+        "name": "number-leading-zero",
+        "value": "off",
+        "description": "小于 1 的数值必须有一个前导零",
+        "reason": "",
+        "badExample": "a { line-height: .5; }\na { transform: translate(2px, .4px); }",
+        "goodExample": "a { line-height: 0.5; }\na { transform: translate(2px, 0.4px); }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "number-max-precision": {
+        "name": "number-max-precision",
+        "value": "off",
+        "description": "数字中允许最大的小数位数为3位",
+        "reason": "",
+        "badExample": "a { top: 3.245px; }\na { top: 3.245634px; }",
+        "goodExample": "a { top: 3.241px; }\n@media (min-width: 3.223em) {}",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "number-no-trailing-zeros": {
+        "name": "number-no-trailing-zeros",
+        "value": "never",
+        "description": "禁止数字尾随零 1.0 / 0.50",
+        "reason": "",
+        "badExample": "a { top: 1.0px }\na { top: 1.01000px }",
+        "goodExample": "a { top: 1px }\na { top: 1.01px }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "property-case": {
+        "name": "property-case",
+        "value": "never",
+        "description": "属性必须为小写格式",
+        "reason": "",
+        "badExample": "a {\n  Width: 1px\n}\na {\n  WIDTH: 1px\n}",
+        "goodExample": "a {\n  width: 1px\n}\na {\n  border-radius: 5px;\n}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "property-no-unknown": {
+        "name": "property-no-unknown",
+        "value": "never",
+        "description": "禁止使用未知属性",
+        "reason": "",
+        "badExample": "a {\n  colr: #000;\n}\na {\n  my-property: 1;\n}",
+        "goodExample": "a {\n  color: #000;\n}\na {\n  fill: #333;\n}",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "property-no-vendor-prefix": {
+        "name": "property-no-vendor-prefix",
+        "value": [
+            "never",
+            {
+                "ignoreProperties": ["app-region", "appearance", "mask", "tab-size"]
+            }
+        ],
+        "description": "禁止属性使用浏览器引擎前缀",
+        "reason": "",
+        "badExample": "a { -webkit-transform: scale(1); }\na { -moz-columns: 2; }",
+        "goodExample": "a { transform: scale(1); }\na {\ncolumns: 2; }\na { -webkit-touch-callout: none; }",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "rule-empty-line-before": {
+        "name": "rule-empty-line-before",
+        "value": "off",
+        "description": "在规则之前必须有空行",
+        "reason": "",
+        "badExample": "a {} b {}\na {}\nb {}",
+        "goodExample": "a {}\n\nb {}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "selector-attribute-brackets-space-inside": {
+        "name": "selector-attribute-brackets-space-inside",
+        "value": "never",
+        "description": "属性选择器内的括号内禁止出现空格",
+        "reason": "",
+        "badExample": "[ target] {}\n[target ] {}\n[ target ] {}\n[ target=_blank] {}\n[target=_blank ] {}\n[ target=_blank ] {}",
+        "goodExample": "[target] {}\n[target=_blank] {}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "selector-attribute-operator-space-after": {
+        "name": "selector-attribute-operator-space-after",
+        "value": "never",
+        "description": "在运算符之后禁止出现空格",
+        "reason": "",
+        "badExample": "[target= _blank] {}\n[target = _blank] {}\n[target= '_blank'] {}\n[target= \"_blank\"] {}\n[target = '_blank'] {}\n[target = \"_blank\"] {}",
+        "goodExample": "[target] {}\n[target=_blank] {}\n[target='_blank'] {}\n[target=\"_blank\"] {}\n[target =_blank] {}\n[target ='_blank'] {}\n[target =\"_blank\"] {}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "selector-attribute-operator-space-before": {
+        "name": "selector-attribute-operator-space-before",
+        "value": "never",
+        "description": "在运算符之前禁止出现空格",
+        "reason": "",
+        "badExample": "[target= _blank] {}\n[target = _blank] {}\n[target= '_blank'] {}\n[target= \"_blank\"] {}\n[target = '_blank'] {}\n[target = \"_blank\"] {}",
+        "goodExample": "[target] {}\n[target=_blank] {}\n[target='_blank'] {}\n[target=\"_blank\"] {}\n[target =_blank] {}\n[target ='_blank'] {}\n[target =\"_blank\"] {}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "selector-attribute-quotes": {
+        "name": "selector-attribute-quotes",
+        "value": "off",
+        "description": "属性值必须使用引号",
+        "reason": "",
+        "badExample": "[title=flower] {}\n[class^=top] {}",
+        "goodExample": "[title] {}\n[target=\"_blank\"] {}\n[class|=\"top\"] {}",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "selector-combinator-space-after": {
+        "name": "selector-combinator-space-after",
+        "value": "off",
+        "description": "在组合选择器之后必须有一个空格",
+        "reason": "",
+        "badExample": "a +b { color: #000; }\na>b { color: #000; }",
+        "goodExample": "a + b { color: #000; }\na> b { color: #000; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "selector-combinator-space-before": {
+        "name": "selector-combinator-space-before",
+        "value": "off",
+        "description": "在组合选择器之前必须有一个空格",
+        "reason": "",
+        "badExample": "a +b { color: #000; }\na>b { color: #000; }",
+        "goodExample": "a + b { color: #000; }\na> b { color: #000; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "selector-descendant-combinator-no-non-space": {
+        "name": "selector-descendant-combinator-no-non-space",
+        "value": "never",
+        "description": "禁止后代选择器使用非空格字符",
+        "reason": "",
+        "badExample": ".foo  .bar {}\n.foo\n.bar {}",
+        "goodExample": ".foo .bar {}",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "selector-list-comma-newline-after": {
+        "name": "selector-list-comma-newline-after",
+        "value": "off",
+        "description": "选择器列表的逗号之后必须有换行符",
+        "reason": "",
+        "badExample": "a, b { color: #000; }\na\n, b { color: #000; }",
+        "goodExample": "a,\nb { color: #000; }\na\n,\nb { color: #000; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "selector-list-comma-newline-before": {
+        "name": "selector-list-comma-newline-before",
+        "value": "off",
+        "description": "选择器列表的逗号之前必须有换行符",
+        "reason": "",
+        "badExample": "a, b { color: #000; }\na\n, b { color: #000; }",
+        "goodExample": "a,\nb { color: #000; }\na\n,\nb { color: #000; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "selector-list-comma-space-before": {
+        "name": "selector-list-comma-space-before",
+        "value": "never",
+        "description": "在选择器列表的逗号之前禁止有空白符",
+        "reason": "",
+        "badExample": "a ,b { color: pink; }\na , b { color: pink; }",
+        "goodExample": "a,b { color: pink; }\na, b { color: pink; }",
+        "fixable": true,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
+    },
+    "selector-max-attribute": {
+        "name": "selector-max-attribute",
+        "value": "never",
+        "description": "一个选择器中属性选择器的最大数量为3",
+        "reason": "",
+        "badExample": "[type=\"number\"][name=\"quality\"][data-attribute=\"value\"][disabled]  {}",
+        "goodExample": "[type=\"text\"] {}\n[type=\"text\"][name=\"message\"] {}\n[type=\"text\"][disabled]",
+        "fixable": false,
+        "extendsBaseRule": "",
+        "requiresTypeChecking": false
     }
 }
