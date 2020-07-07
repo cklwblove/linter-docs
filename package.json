@@ -38,6 +38,7 @@
     "bugs": {
         "url": "https://github.com/cklwblove/linter-docs/issues"
     },
+    "homepage": "",
     "publishConfig": {
         "access": "public"
     },

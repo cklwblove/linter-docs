@@ -15,54 +15,54 @@ export const NAMESPACE_CONFIG = {
         getDocsUrl: (rule: string) => `https://stylelint.io/user-guide/rules/${rule}`,
         /** 插件的名称 */
         pluginName: undefined
-    },
-    base: {
-        /** bad.js good.js 的后缀 */
-        exampleExtension: 'js',
-        /** Prism 语言设置 */
-        prismLanguage: 'js',
-        /** 插件前缀 */
-        rulePrefix: '',
-        /** 规则配置 */
-        ruleConfig: require('./rules/base.json'),
-        /** 各插件的文档地址 */
-        getDocsUrl: (rule: string) => `https://eslint.org/docs/rules/${rule}`,
-        /** 插件的名称 */
-        pluginName: undefined
-    },
-    react: {
-        exampleExtension: 'js',
-        prismLanguage: 'jsx',
-        rulePrefix: 'react/',
-        ruleConfig: require('./rules/react.json'),
-        getDocsUrl: (rule: string) =>
-            `https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/${rule.replace(
-                /.*\//,
-                ''
-            )}.md`,
-        pluginName: 'eslint-plugin-react'
-    },
-    vue: {
-        exampleExtension: 'vue',
-        prismLanguage: 'html',
-        rulePrefix: 'vue/',
-        ruleConfig: require('./rules/vue.json'),
-        getDocsUrl: (rule: string) =>
-            `https://eslint.vuejs.org/rules/${rule.replace(/.*\//, '')}.html`,
-        pluginName: 'eslint-plugin-vue'
-    },
-    typescript: {
-        exampleExtension: 'ts',
-        prismLanguage: 'ts',
-        rulePrefix: '@typescript-eslint/',
-        ruleConfig: require('./rules/typescript.json'),
-        getDocsUrl: (rule: string) =>
-            `https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/${rule.replace(
-                /.*\//,
-                ''
-            )}.md`,
-        pluginName: '@typescript-eslint/eslint-plugin'
     }
+    // base: {
+    //     /** bad.js good.js 的后缀 */
+    //     exampleExtension: 'js',
+    //     /** Prism 语言设置 */
+    //     prismLanguage: 'js',
+    //     /** 插件前缀 */
+    //     rulePrefix: '',
+    //     /** 规则配置 */
+    //     ruleConfig: require('./rules/base.json'),
+    //     /** 各插件的文档地址 */
+    //     getDocsUrl: (rule: string) => `https://eslint.org/docs/rules/${rule}`,
+    //     /** 插件的名称 */
+    //     pluginName: undefined
+    // },
+    // react: {
+    //     exampleExtension: 'js',
+    //     prismLanguage: 'jsx',
+    //     rulePrefix: 'react/',
+    //     ruleConfig: require('./rules/react.json'),
+    //     getDocsUrl: (rule: string) =>
+    //         `https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/${rule.replace(
+    //             /.*\//,
+    //             ''
+    //         )}.md`,
+    //     pluginName: 'eslint-plugin-react'
+    // },
+    // vue: {
+    //     exampleExtension: 'vue',
+    //     prismLanguage: 'html',
+    //     rulePrefix: 'vue/',
+    //     ruleConfig: require('./rules/vue.json'),
+    //     getDocsUrl: (rule: string) =>
+    //         `https://eslint.vuejs.org/rules/${rule.replace(/.*\//, '')}.html`,
+    //     pluginName: 'eslint-plugin-vue'
+    // },
+    // typescript: {
+    //     exampleExtension: 'ts',
+    //     prismLanguage: 'ts',
+    //     rulePrefix: '@typescript-eslint/',
+    //     ruleConfig: require('./rules/typescript.json'),
+    //     getDocsUrl: (rule: string) =>
+    //         `https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/${rule.replace(
+    //             /.*\//,
+    //             ''
+    //         )}.md`,
+    //     pluginName: '@typescript-eslint/eslint-plugin'
+    // }
 };
 
 export type Namespace = keyof typeof NAMESPACE_CONFIG;
@@ -77,7 +77,6 @@ export function buildEslintrcMeta() {
  *
  * 贡献者：
  *     ${pkg.author}
- *     ${pkg.contributors.join('\n *     ')}
  *
  * 依赖版本：
  *     ${[
