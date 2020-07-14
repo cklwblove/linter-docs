@@ -302,17 +302,6 @@
         "extendsBaseRule": "",
         "requiresTypeChecking": false
     },
-    "declaration-block-semicolon-newline-after": {
-        "name": "declaration-block-semicolon-newline-after",
-        "value": "off",
-        "description": "在声明块的分号之后必须有一个换行符",
-        "reason": "",
-        "badExample": "a {\n  color: #000; top: 0;\n}",
-        "goodExample": "a { color: #000; }\na { color: #000; top: 0; }\na {\n  color: #000;\n  top: 0;\n}",
-        "fixable": true,
-        "extendsBaseRule": "",
-        "requiresTypeChecking": false
-    },
     "declaration-block-semicolon-newline-before": {
         "name": "declaration-block-semicolon-newline-before",
         "value": "never",
@@ -696,7 +685,7 @@
     "max-nesting-depth": {
         "name": "max-nesting-depth",
         "value": "off",
-        "description": "限制允许嵌套的深度为8（除了伪类选择器）",
+        "description": "限制允许嵌套的深度为5（除了伪类选择器）",
         "reason": "",
         "badExample": "",
         "goodExample": "",
@@ -841,8 +830,8 @@
         "value": "never",
         "description": "禁止在具有较高优先级的选择器后出现被其覆盖的较低优先级的选择器",
         "reason": "",
-        "badExample": "b a {}\na {}\na + a {}\na {}",
-        "goodExample": "a {}\nb a {}\na {}\na + a {}",
+        "badExample": "b a {}\na {}",
+        "goodExample": "a {}\nb a {}",
         "fixable": false,
         "extendsBaseRule": "",
         "requiresTypeChecking": false
