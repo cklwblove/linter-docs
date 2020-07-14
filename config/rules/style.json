@@ -1107,8 +1107,8 @@
     },
     "selector-list-comma-newline-before": {
         "name": "selector-list-comma-newline-before",
-        "value": "off",
-        "description": "选择器列表的逗号之前必须有换行符",
+        "value": "never",
+        "description": "选择器列表的逗号之前禁止有换行符",
         "reason": "",
         "badExample": "a, b { color: #000; }\na\n, b { color: #000; }",
         "goodExample": "a,\nb { color: #000; }\na\n,\nb { color: #000; }",
