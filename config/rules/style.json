@@ -159,17 +159,6 @@
         "extendsBaseRule": "",
         "requiresTypeChecking": false
     },
-    "block-opening-brace-newline-before": {
-        "name": "block-opening-brace-newline-before",
-        "value": "off",
-        "description": "在块的左大括号之前必须有换行符",
-        "reason": "",
-        "badExample": "a{color: #000;\n}",
-        "goodExample": "a { color: #000; }\na {\ncolor: #000; }",
-        "fixable": true,
-        "extendsBaseRule": "",
-        "requiresTypeChecking": false
-    },
     "color-hex-case": {
         "name": "color-hex-case",
         "value": "off",
