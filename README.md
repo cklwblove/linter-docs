@@ -7,12 +7,12 @@
 - [内置规则](#内置规则)
 - [Vue](#vue)
 
-## 使用方法
+## 使用方法（ESLint）
 
 ### 内置规则
 
 ```bash
-npm install --save-dev eslint babel-eslint eslint-config-win stylelint-config-win
+npm install --save-dev eslint babel-eslint eslint-config-win
 ```
 
 在你的项目的根目录下创建一个 `.eslintrc.js` 文件，并将以下内容复制进去：
@@ -75,6 +75,9 @@ module.exports = {
     }
 };
 ```
+
+## 使用方法（StyleLint）
+待补充
 
 ## 常见问题
 
