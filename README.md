@@ -77,7 +77,7 @@ module.exports = {
 ```
 
 ## 使用方法（StyleLint）
-待补充
+可见 [stylelint-config-win](https://github.com/cloud-templates/stylelint-config-win)
 
 ## 常见问题
 
